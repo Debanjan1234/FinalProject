@@ -60,7 +60,7 @@ Training <- Training[,Datanzv$nzv==FALSE]
 Datanzv<- nearZeroVar(Testing,saveMetrics=TRUE)
 Testing <- Testing[,Datanzv$nzv==FALSE]
 ```
-##Remove the first column of the myTraining data set
+##Remove the first column of the Training data set
 ```{r}
 Training <- Training[c(-1)]
 ```
@@ -123,8 +123,10 @@ rf <- confusionMatrix(prediction1, Testing$classe)
 rf
 plot(modFit1)
 ```
+
 ##Predicting Results on the Test Data
-Data Random Forests gave an Accuracy in the Test dataset of 99.89%, which was more accurate than what we see in LDA. The expected out-of-sample error is 100-99.89 = 0.11%.
+
+ Random Forests gave an Accuracy in the Test dataset of 99.89%, which was more accurate than what we see in Linear Discriminent Analysis. The expected out-of-sample error is 100-99.89 = 0.11%.
 ```{r}
 prediction1 <- predict(modFit1, testing, type = "class")
 prediction1
